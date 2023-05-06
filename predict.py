@@ -3,8 +3,7 @@ import pickle
 import pandas as pd
 import random
 import string
-import os
-import joblib
+
 
 #third time
 '''MODEL_DIR = os.environ.get('MODEL_DIR', 'D:\College_project\FBmodel.pkl')
