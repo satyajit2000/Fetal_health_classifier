@@ -1,9 +1,9 @@
-import streamlit as st
 import pickle
-import pandas as pd
 import random
 import string
-import sklearn
+
+import pandas as pd
+import streamlit as st
 
 load_model = pickle.load(open('FBmodel.pkl', 'rb'))
 def main():
