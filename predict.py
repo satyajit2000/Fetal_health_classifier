@@ -5,14 +5,7 @@ import random
 import string
 
 
-#third time
-'''MODEL_DIR = os.environ.get('MODEL_DIR', 'D:\College_project\FBmodel.pkl')
-MODEL_FILE = os.path.join(MODEL_DIR, 'model.pkl')
-
-with open(MODEL_FILE, 'rb') as f:
-    load_model = pickle.load(f)'''
-
-load_model = pickle.load(open('https://github.com/satyajit2000/Fetal_health_classifier/blob/master/FBmodel.pkl','rb'))
+load_model = pickle.load(open('FBmodel.pkl', 'rb'))
 def main():
 
     uploaded_file = st.file_uploader("Choose a file")
