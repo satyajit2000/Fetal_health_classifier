@@ -43,14 +43,10 @@ def main():
                 st.write('Normal')
             elif a==2:
                 st.write('Suspect')
-            else:
+            elif a==3:
                 st.write('Pathological')
 
-            if makeprediction!=(df.loc[0, 'fetal_health']):
 
-                # Create a new file with the original CSV data
-                new_file_path = ''.join(random.choices(string.ascii_uppercase + string.digits, k=10)) + ".csv"
-                df.to_csv(new_file_path, index=False)
 
 
 if __name__ == '__main__':
