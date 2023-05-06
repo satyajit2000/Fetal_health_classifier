@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 import random
 import string
-
+import sklearn
 
 load_model = pickle.load(open('FBmodel.pkl', 'rb'))
 def main():
