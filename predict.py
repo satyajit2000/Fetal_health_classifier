@@ -4,7 +4,7 @@ import string
 import pandas as pd
 import streamlit as st
 
-load_model = pickle.load(open('FBmodel.pkl', 'rb'))
+load_model = pickle.load(open('FinalModel2.pkl', 'rb'))
 def main():
 
     uploaded_file = st.file_uploader("Choose a file")
