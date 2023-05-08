@@ -1,8 +1,10 @@
 import pickle
-import random
-import string
 import pandas as pd
 import streamlit as st
+import os
+import time
+
+
 
 load_model = pickle.load(open('FinalModel2.pkl', 'rb'))
 def main():
@@ -35,16 +37,21 @@ def main():
         histogram_median = st.text_input("histogram_median", value=df.loc[0, 'histogram_median'])
         histogram_variance = st.text_input("histogram_variance", value=df.loc[0, 'histogram_variance'])
         histogram_tendency = st.text_input("histogram_tendency", value=df.loc[0, 'histogram_tendency'])
+
+
         if st.button("predict"):
 
             makeprediction=load_model.predict([[baseline_value,accelerations,fetal_movement,uterine_contractions,light_decelerations,prolongued_decelerations,abnormal_short_term_variability,mean_value_of_short_term_variability,percentage_of_time_with_abnormal_long_term_variability,mean_value_of_long_term_variability,histogram_width,histogram_min,histogram_max,histogram_number_of_peaks,histogram_number_of_zeroes,histogram_mode,histogram_mean,histogram_median,histogram_variance,histogram_tendency]])
+            with st.spinner('Wait for it...'):
+                time.sleep(2)
             a = makeprediction
             if a==1:
-                st.write('Normal')
+                st.success('Normal', icon="✅")
             elif a==2:
-                st.write('Suspect')
+                st.warning('Suspect', icon="⚠️")
             elif a==3:
-                st.write('Pathological')
+                st.error('Pathological', icon="🚨")
+
 
 
 
