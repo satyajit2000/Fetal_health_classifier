@@ -87,34 +87,41 @@ def main():
 
 
     elif choice == "File data upload":
+        st.title("Fetal Health Detection")
+        a = ["Single Id Check", "Multiple Id check"]
+        a = st.selectbox("Choose Type", options=a)
+        if a == "Single Id Check":
+            patient_id = 0
+        else:
+            patient_id = st.number_input("Patient Id No:")
         uploaded_file = st.file_uploader("Choose a file")
         if uploaded_file is not None:
             df = pd.read_csv(uploaded_file)
 
-            baseline_value = st.text_input("baseline_value", value=df.loc[0, 'baseline value'])
-            accelerations = st.text_input("accelerations", value=df.loc[0, 'accelerations'])
-            fetal_movement = st.text_input("fetal_movement", value=df.loc[0, 'fetal_movement'])
-            uterine_contractions = st.text_input("uterine_contractions", value=df.loc[0, 'uterine_contractions'])
-            light_decelerations = st.text_input("light_decelerations", value=df.loc[0, 'light_decelerations'])
-            prolongued_decelerations = st.text_input("prolongued_deceleration", value=df.loc[0, 'prolongued_decelerations'])
+            baseline_value = st.text_input("baseline_value", value=df.loc[patient_id, 'baseline value'])
+            accelerations = st.text_input("accelerations", value=df.loc[patient_id, 'accelerations'])
+            fetal_movement = st.text_input("fetal_movement", value=df.loc[patient_id, 'fetal_movement'])
+            uterine_contractions = st.text_input("uterine_contractions", value=df.loc[patient_id, 'uterine_contractions'])
+            light_decelerations = st.text_input("light_decelerations", value=df.loc[patient_id, 'light_decelerations'])
+            prolongued_decelerations = st.text_input("prolongued_deceleration", value=df.loc[patient_id, 'prolongued_decelerations'])
             abnormal_short_term_variability = st.text_input("abnormal_short_term_variability",
-                                                            value=df.loc[0, 'abnormal_short_term_variability'])
+                                                            value=df.loc[patient_id, 'abnormal_short_term_variability'])
             mean_value_of_short_term_variability = st.text_input("mean_value_of_short_term_variability",
-                                                                 value=df.loc[0, 'mean_value_of_short_term_variability'])
+                                                                 value=df.loc[patient_id, 'mean_value_of_short_term_variability'])
             percentage_of_time_with_abnormal_long_term_variability = st.text_input(
-                "percentage_of_time_with_abnormal_long_term_variability", value=df.loc[0, 'percentage_of_time_with_abnormal_long_term_variability'])
+                "percentage_of_time_with_abnormal_long_term_variability", value=df.loc[patient_id, 'percentage_of_time_with_abnormal_long_term_variability'])
             mean_value_of_long_term_variability = st.text_input("mean_value_of_long_term_variability",
-                                                                value=df.loc[0, 'mean_value_of_long_term_variability'])
-            histogram_width = st.text_input("histogram_width", value=df.loc[0, 'histogram_width'])
-            histogram_min = st.text_input("histogram_min", value=df.loc[0, 'histogram_min'])
-            histogram_max = st.text_input("histogram_max", value=df.loc[0, 'histogram_max'])
-            histogram_number_of_peaks = st.text_input("histogram_number_of_peaks", value=df.loc[0, 'histogram_number_of_peaks'])
-            histogram_number_of_zeroes = st.text_input("histogram_number_of_zeroes", value=df.loc[0, 'histogram_number_of_zeroes'])
-            histogram_mode = st.text_input("histogram_mode", value=df.loc[0, 'histogram_mode'])
-            histogram_mean = st.text_input("histogram_mean", value=df.loc[0, 'histogram_mean'])
-            histogram_median = st.text_input("histogram_median", value=df.loc[0, 'histogram_median'])
-            histogram_variance = st.text_input("histogram_variance", value=df.loc[0, 'histogram_variance'])
-            histogram_tendency = st.text_input("histogram_tendency", value=df.loc[0, 'histogram_tendency'])
+                                                                value=df.loc[patient_id, 'mean_value_of_long_term_variability'])
+            histogram_width = st.text_input("histogram_width", value=df.loc[patient_id, 'histogram_width'])
+            histogram_min = st.text_input("histogram_min", value=df.loc[patient_id, 'histogram_min'])
+            histogram_max = st.text_input("histogram_max", value=df.loc[patient_id, 'histogram_max'])
+            histogram_number_of_peaks = st.text_input("histogram_number_of_peaks", value=df.loc[patient_id, 'histogram_number_of_peaks'])
+            histogram_number_of_zeroes = st.text_input("histogram_number_of_zeroes", value=df.loc[patient_id, 'histogram_number_of_zeroes'])
+            histogram_mode = st.text_input("histogram_mode", value=df.loc[patient_id, 'histogram_mode'])
+            histogram_mean = st.text_input("histogram_mean", value=df.loc[patient_id, 'histogram_mean'])
+            histogram_median = st.text_input("histogram_median", value=df.loc[patient_id, 'histogram_median'])
+            histogram_variance = st.text_input("histogram_variance", value=df.loc[patient_id, 'histogram_variance'])
+            histogram_tendency = st.text_input("histogram_tendency", value=df.loc[patient_id, 'histogram_tendency'])
 
 
             if st.button("predict"):
