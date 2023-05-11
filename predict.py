@@ -87,6 +87,7 @@ def main():
 
 
     elif choice == "File data upload":
+        #index choosen
         st.title("Fetal Health Detection")
         a = ["Single Id Check", "Multiple Id check"]
         a = st.selectbox("Choose Type", options=a)
